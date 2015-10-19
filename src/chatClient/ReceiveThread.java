@@ -16,13 +16,13 @@ public class ReceiveThread implements Runnable {
 
 	public void run() {
 		try {
-
+			// System.out.println("receiveThread");
 			bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			String message = null;
 			while (!socket.isClosed()) {
 
 				message = bufferedReader.readLine();
-				if (!message.equals(null)) {
+				if (!message.isEmpty()) {
 					System.out.println(message);
 				}
 
